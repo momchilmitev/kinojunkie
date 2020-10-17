@@ -1,133 +1,27 @@
 <?php
 
-interface Writable
-{
-    /**
-     * @param string $text
-     * @throws Exception
-     */
-    public function writeText(string $text): void;
+spl_autoload_register(function ($class) {
+    require_once str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
+});
+
+$vehicles = [];
+$factory = new \Factories\VehicleFactory();
+
+for ($i = 0; $i < 2; $i++) {
+    list($type, $quantity, $consumption) = explode(' ', readline());
+    $vehicle = $factory->create($type, $quantity, $consumption);
+    $vehicles[$type] = $vehicle;
 }
 
-interface Chargeable
-{
-    public function useInk(int $quantity): void;
+$n = readline();
 
-    public function getInk(): int;
+for ($i = 0; $i < $n; $i++) {
+    list($action, $type, $param) = explode(" ", readline());
+    $vehicle = $vehicles[$type];
+    $action = strtolower($action);
+    echo $vehicle->$action($param);
 }
 
-interface WriterInterface extends Writable, Chargeable
-{
+foreach ($vehicles as $vehicle) {
+    echo $vehicle;
 }
-
-interface ElectricalDeviceInterface
-{
-    public function getUsage(): int;
-
-    public function isPlugged(): bool;
-
-    public function plug(): void;
-}
-
-interface Consumable
-{
-    public function isAvailable(): bool;
-}
-
-abstract class AbstractWriter implements WriterInterface
-{
-    private int $ink;
-    private int $modifier;
-
-    public function __construct(int $ink, int $modifier)
-    {
-        $this->ink = $ink;
-        $this->modifier = $modifier;
-    }
-
-    public function writeText(string $text): void
-    {
-        if ($this->getInk() > 0) {
-            $this->useInk(strlen($text) * $this->modifier);
-            echo $text;
-        }
-
-        throw new Exception("Not enough ink!");
-    }
-
-    public function useInk(int $quantity): void
-    {
-        $this->ink -= $quantity;
-    }
-
-    public function getInk(): int
-    {
-        return $this->ink;
-    }
-}
-
-class Printer extends AbstractWriter implements ElectricalDeviceInterface
-{
-    const INK_MODIFIER = 5;
-
-    /**
-     * @var bool
-     */
-    private bool $isPlugged;
-
-    public function __construct(int $ink, bool $isPlugged)
-    {
-        parent::__construct($ink, self::INK_MODIFIER);
-        $this->isPlugged = $isPlugged;
-    }
-
-    public function getUsage(): int
-    {
-        return 300;
-    }
-
-    public function isPlugged(): bool
-    {
-        return $this->isPlugged;
-    }
-
-    public function plug(): void
-    {
-        $this->isPlugged = true;
-    }
-}
-
-class Pen extends AbstractWriter implements Consumable
-{
-    const INK_MODIFIER = 1;
-
-    public function __construct(int $ink)
-    {
-        parent::__construct($ink, self::INK_MODIFIER);
-    }
-
-    public function isAvailable(): bool
-    {
-        return true;
-    }
-}
-
-function plug(ElectricalDeviceInterface $device)
-{
-    if (!$device->isPlugged()) {
-        $device->plug();
-    }
-}
-
-function rechargeInk(WriterInterface $writer)
-{
-    if ($writer->getInk() < 5) {
-        $writer->useInk(-100);
-    }
-}
-
-rechargeInk(new Pen(50));
-rechargeInk(new Printer(50, true));
-
-plug(new Printer(50, true));
-//plug(new Pen(50));
