@@ -11,6 +11,8 @@ services:
     command: npm start
     depends_on:
       - mongo
+    networks:
+      - kinojunkie
 
   mongo:
     image: mongo:6
@@ -23,3 +25,8 @@ services:
       - MONGO_INITDB_DATABASE=kinojunkie
     volumes:
       - ./mongodb/seed.js:/docker-entrypoint-initdb.d/seed.js
+    networks:
+      - kinojunkie
+
+networks:
+  kinojunkie:

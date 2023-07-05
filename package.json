@@ -9,6 +9,7 @@
     "start:prod": "node ./index.js"
   },
   "dependencies": {
+    "@fastify/mongodb": "^7.0.0",
     "fastify": "^4.19.2"
   },
   "devDependencies": {
