@@ -21,3 +21,5 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
       - MONGO_INITDB_DATABASE=kinojunkie
+    volumes:
+      - ./mongodb/seed.js:/docker-entrypoint-initdb.d/seed.js
