@@ -1,6 +1,9 @@
-FROM php:8.2-fpm
+FROM node:18.16.1-bookworm-slim
 
-WORKDIR /var/www/html
+WORKDIR /usr/src/app
 
-RUN docker-php-ext-install pdo pdo_mysql
+COPY . .
 
+RUN npm install
+
+CMD [ "npm", "start" ]
