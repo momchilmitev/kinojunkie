@@ -1,11 +1,11 @@
 FROM node:18.16.1-bookworm-slim
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/backend
 
-COPY package*.json ./
+COPY backend/package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY backend/ .
 
 CMD [ "npm", "start" ]

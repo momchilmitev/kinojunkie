@@ -1,14 +1,21 @@
 services:
-  node:
+  frontend:
     build:
       context: .
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    networks:
+      - kinojunkie
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
     ports:
       - 3000:3000
-      - 9229:9229
-    command: npm start
     depends_on:
       - mongo
     networks:
