@@ -7,6 +7,9 @@ services:
       - "4200:4200"
     depends_on:
       - backend
+    volumes:
+      - ./frontend:/usr/src/app/frontend
+      - ./frontend/node_modules:/usr/src/app/frontend/node_modules
     networks:
       - kinojunkie
 
@@ -18,6 +21,9 @@ services:
       - 3000:3000
     depends_on:
       - mongo
+    volumes:
+      - ./backend:/usr/src/app/backend
+      - ./backend/node_modules:/usr/src/app/backend/node_modules
     networks:
       - kinojunkie
 

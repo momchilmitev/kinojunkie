@@ -1,5 +1,10 @@
 const fastify = require('fastify')();
 const mongodb = require('@fastify/mongodb');
+const cors = require('@fastify/cors');
+
+fastify.register(cors, {
+  cors: true,
+});
 
 fastify.register(mongodb, {
   // force to close the mongodb connection when app stopped
@@ -10,7 +15,7 @@ fastify.register(mongodb, {
 });
 
 fastify.get('/', async function handler(request, reply) {
-  return { hello: 'world' };
+  return { hello: 'momo' };
 });
 
 fastify.get('/movies', async function handler(request, reply) {
