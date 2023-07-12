@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MovieModule } from './movies/movies.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { MovieModule } from './movies/movies.module';
       dbName: 'kinojunkie',
     }),
     MovieModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
