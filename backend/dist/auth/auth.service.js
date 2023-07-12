@@ -20,6 +20,13 @@ let AuthService = exports.AuthService = class AuthService {
         const createdUser = this.usersService.create(user);
         return createdUser;
     }
+    async signIn(user) {
+        const foundUser = await this.usersService.findByEmail(user);
+        if (foundUser?.password !== user.password) {
+            throw new common_1.UnauthorizedException();
+        }
+        return foundUser;
+    }
 };
 exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),

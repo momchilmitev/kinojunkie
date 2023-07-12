@@ -7,6 +7,10 @@ import { CreateUserDto } from './create-user.dto';
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
+  async findByEmail(user: User): Promise<User | undefined> {
+    return this.userModel.findOne({ email: user.email }).exec();
+  }
+
   async create(createUserDto: CreateUserDto): Promise<User> {
     const createdUser = new this.userModel(createUserDto);
     return createdUser.save();

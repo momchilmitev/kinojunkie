@@ -21,6 +21,9 @@ let UsersService = exports.UsersService = class UsersService {
     constructor(userModel) {
         this.userModel = userModel;
     }
+    async findByEmail(user) {
+        return this.userModel.findOne({ email: user.email }).exec();
+    }
     async create(createUserDto) {
         const createdUser = new this.userModel(createUserDto);
         return createdUser.save();
