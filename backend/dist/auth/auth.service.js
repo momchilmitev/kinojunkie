@@ -8,26 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MoviesService = void 0;
-const mongoose_1 = require("mongoose");
+exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
-const mongoose_2 = require("@nestjs/mongoose");
-const movie_schema_1 = require("./movie.schema");
-let MoviesService = exports.MoviesService = class MoviesService {
-    constructor(movieModel) {
-        this.movieModel = movieModel;
+const users_service_1 = require("../users/users.service");
+let AuthService = exports.AuthService = class AuthService {
+    constructor(usersService) {
+        this.usersService = usersService;
     }
-    async findAll() {
-        return this.movieModel.find().exec();
+    async signUp(user) {
+        const createdUser = this.usersService.create(user);
+        return createdUser;
     }
 };
-exports.MoviesService = MoviesService = __decorate([
+exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_2.InjectModel)(movie_schema_1.Movie.name)),
-    __metadata("design:paramtypes", [mongoose_1.Model])
-], MoviesService);
-//# sourceMappingURL=movies.service.js.map
+    __metadata("design:paramtypes", [users_service_1.UsersService])
+], AuthService);
+//# sourceMappingURL=auth.service.js.map

@@ -12,22 +12,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MoviesService = void 0;
-const mongoose_1 = require("mongoose");
+exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
-const mongoose_2 = require("@nestjs/mongoose");
-const movie_schema_1 = require("./movie.schema");
-let MoviesService = exports.MoviesService = class MoviesService {
-    constructor(movieModel) {
-        this.movieModel = movieModel;
+const auth_service_1 = require("./auth.service");
+const user_schema_1 = require("../users/user.schema");
+let AuthController = exports.AuthController = class AuthController {
+    constructor(authService) {
+        this.authService = authService;
     }
-    async findAll() {
-        return this.movieModel.find().exec();
+    signUp(signInDto) {
+        return this.authService.signUp(signInDto);
     }
 };
-exports.MoviesService = MoviesService = __decorate([
-    (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_2.InjectModel)(movie_schema_1.Movie.name)),
-    __metadata("design:paramtypes", [mongoose_1.Model])
-], MoviesService);
-//# sourceMappingURL=movies.service.js.map
+__decorate([
+    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
+    (0, common_1.Post)('register'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_schema_1.User]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "signUp", null);
+exports.AuthController = AuthController = __decorate([
+    (0, common_1.Controller)('auth'),
+    __metadata("design:paramtypes", [auth_service_1.AuthService])
+], AuthController);
+//# sourceMappingURL=auth.controller.js.map
