@@ -9,37 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthService = void 0;
+exports.AuthGuard = void 0;
 const common_1 = require("@nestjs/common");
-const users_service_1 = require("../users/users.service");
 const jwt_1 = require("@nestjs/jwt");
-let AuthService = exports.AuthService = class AuthService {
-    constructor(usersService, jwtService) {
-        this.usersService = usersService;
+const constants_1 = require("./constants");
+let AuthGuard = exports.AuthGuard = class AuthGuard {
+    constructor(jwtService) {
         this.jwtService = jwtService;
     }
-    async signUp(user) {
-        const createdUser = this.usersService.create(user);
-        return createdUser;
-    }
-    async signIn(user) {
-        const foundUser = await this.usersService.findByEmail(user);
-        if (foundUser?.password !== user.password) {
+    async canActivate(context) {
+        const request = context.switchToHttp().getRequest();
+        const token = this.extractTokenFromHeader(request);
+        if (!token) {
             throw new common_1.UnauthorizedException();
         }
-        const payload = {
-            sub: foundUser._id,
-            email: foundUser.email,
-            username: foundUser.firstName + ' ' + foundUser.lastName,
-        };
-        return {
-            access_token: await this.jwtService.signAsync(payload),
-        };
+        try {
+            const payload = await this.jwtService.verifyAsync(token, {
+                secret: constants_1.jwtConstants.secret,
+            });
+            request['user'] = payload;
+        }
+        catch {
+            throw new common_1.UnauthorizedException();
+        }
+        return true;
+    }
+    extractTokenFromHeader(request) {
+        const [type, token] = request.headers.authorization?.split(' ') ?? [];
+        return type === 'Bearer' ? token : undefined;
     }
 };
-exports.AuthService = AuthService = __decorate([
+exports.AuthGuard = AuthGuard = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [users_service_1.UsersService,
-        jwt_1.JwtService])
-], AuthService);
-//# sourceMappingURL=auth.service.js.map
+    __metadata("design:paramtypes", [jwt_1.JwtService])
+], AuthGuard);
+//# sourceMappingURL=auth.guard.js.map
