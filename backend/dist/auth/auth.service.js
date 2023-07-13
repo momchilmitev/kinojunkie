@@ -12,9 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("../users/users.service");
+const jwt_1 = require("@nestjs/jwt");
 let AuthService = exports.AuthService = class AuthService {
-    constructor(usersService) {
+    constructor(usersService, jwtService) {
         this.usersService = usersService;
+        this.jwtService = jwtService;
     }
     async signUp(user) {
         const createdUser = this.usersService.create(user);
@@ -25,11 +27,15 @@ let AuthService = exports.AuthService = class AuthService {
         if (foundUser?.password !== user.password) {
             throw new common_1.UnauthorizedException();
         }
-        return foundUser;
+        const payload = { sub: foundUser._id, username: foundUser.email };
+        return {
+            access_token: await this.jwtService.signAsync(payload),
+        };
     }
 };
 exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [users_service_1.UsersService])
+    __metadata("design:paramtypes", [users_service_1.UsersService,
+        jwt_1.JwtService])
 ], AuthService);
 //# sourceMappingURL=auth.service.js.map

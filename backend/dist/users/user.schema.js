@@ -16,6 +16,10 @@ let User = exports.User = class User {
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
+], User.prototype, "_id", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
 ], User.prototype, "firstName", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
