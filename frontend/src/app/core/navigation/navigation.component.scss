@@ -1,0 +1,22 @@
+:host {
+  box-shadow: 2px 2px 5px black;
+  border-radius: 10px;
+  height: 90%;
+  padding: 10px 0;
+
+  nav {
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  nav mat-icon:last-child {
+    margin-top: auto;
+  }
+
+  nav > mat-list {
+    margin-top: 30px;
+  }
+}

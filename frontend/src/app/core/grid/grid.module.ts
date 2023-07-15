@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../shared/material/material.module';
+import { NavigationModule } from '../../core/navigation/navigation.module'
 import { GridComponent } from './grid.component'
 
 
@@ -11,6 +12,7 @@ import { GridComponent } from './grid.component'
   imports: [
     CommonModule,
     MaterialModule,
+    NavigationModule,
   ],
   exports: [
     GridComponent,
