@@ -1,18 +1,26 @@
 <nav>
   <mat-icon aria-hidden="false" aria-label="Logo" fontIcon="movie"></mat-icon>
   <mat-list role="navigation">
-    <a mat-list-item role="listitem">
+    <a mat-list-item role="listitem" routerLink="/">
       <mat-icon aria-hidden="false" aria-label="Dashboard" fontIcon="dashboard"></mat-icon>
     </a>
-    <a mat-list-item role="listitem">
+    <a mat-list-item role="listitem" [routerLink]="['/movies']">
       <mat-icon aria-hidden="false" aria-label="Movies" fontIcon="videocam"></mat-icon>
     </a>
-    <a mat-list-item role="listitem">
+    <a mat-list-item role="listitem" [routerLink]="['/series']">
       <mat-icon aria-hidden="false" aria-label="Series" fontIcon="tv"></mat-icon>
     </a>
-    <a mat-list-item role="listitem">
+    <a mat-list-item role="listitem" [routerLink]="['/bookmarks']">
       <mat-icon aria-hidden="false" aria-label="Book marked items" fontIcon="bookmarks"></mat-icon>
     </a>
   </mat-list>
-  <mat-icon aria-hidden="false" aria-label="User" fontIcon="account_circle"></mat-icon>
+  <div>
+    <button mat-icon-button  [matMenuTriggerFor]="menu">
+      <mat-icon aria-hidden="false" aria-label="User" fontIcon="account_circle"></mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item [routerLink]="['/login']">Login</a>
+      <a mat-menu-item [routerLink]="['/register']">Register</a>
+    </mat-menu>
+  </div>
 </nav>
