@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit (): void {
     this.http.get<Movie[]>('http://0.0.0.0:3000/movies').subscribe(v => {
-      console.log(v[0]);
       this.movie = v[0]
     })
   }
