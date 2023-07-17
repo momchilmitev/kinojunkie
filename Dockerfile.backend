@@ -1,4 +1,6 @@
-FROM node:18.16.1-bookworm-slim
+FROM node:18.16.1-bookworm-slim as development
+
+RUN apt-get update && apt-get install -y procps
 
 WORKDIR /usr/src/app/backend
 
@@ -8,4 +10,4 @@ RUN npm install
 
 COPY backend/ .
 
-CMD [ "npm", "run", "start:dev" ]
+# CMD [ "npm", "run", "start:dev" ]

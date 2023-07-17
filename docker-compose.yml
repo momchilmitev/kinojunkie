@@ -17,8 +17,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.backend
+      target: development
     ports:
       - 3000:3000
+    command: npm run start:dev
     depends_on:
       - mongo
     volumes:
