@@ -9,13 +9,28 @@ export class Movie {
   title: string;
 
   @Prop()
-  poster: string;
+  poster_small: string;
 
   @Prop()
-  year: number;
+  poster_large: string;
 
   @Prop()
-  duration: number;
+  year: string;
+
+  @Prop()
+  duration: string;
+
+  @Prop()
+  price: number;
+
+  @Prop()
+  type: string;
+
+  @Prop([String])
+  bookmarked_by: string[];
+
+  @Prop()
+  description: string;
 }
 
 export const MovieSchema = SchemaFactory.createForClass(Movie);
