@@ -167,4 +167,116 @@ db.movies.insertMany([
     description:
       'Return to a world of two realities: one, everyday life; the other, what lies behind it. To find out if his reality is a construct, to truly know himself, Mr. Anderson will have to choose to follow the white rabbit once more.',
   },
+  {
+    title: 'Chernobyl',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/9h7wdjm5rumoxjgbvfmup/chernobyl-mittel.jpeg?rlkey=5l0tn7h2hm35hx2uwu2zyri7b&raw=1',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/ijo1oiw1ncudtywt6pqjk/chernobyl-gro.jpeg?rlkey=d3dv69t9onlqhqshnfvvuihtq&raw=1',
+    year: 2019,
+    duration: 330,
+    price: 29.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      "In April 1986, an explosion at the Chernobyl nuclear power plant in the Union of Soviet Socialist Republics becomes one of the world's worst man-made catastrophes.",
+  },
+  {
+    title: 'Fringe',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/2sbcq8uhbin144uctwt1s/fringe-mittel.jpeg?rlkey=t6ta00u1m7ep12k3ynk5h5z9p&raw=1',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/eyavv7kc3qm2i5li027fh/fringe-gro.jpeg?rlkey=57ytgfci2av42m553e32ryzur&raw=1',
+    year: 2008 / 2013,
+    duration: '100 x 46 min',
+    price: 49.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      'An F.B.I. agent is forced to work with an institutionalized scientist and his son in order to rationalize a brewing storm of unexplained phenomena.',
+  },
+  {
+    title: 'Game of Thrones',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/1gwr6ny2e0qm9ht5h2y42/game-of-thrones-mittel.jpeg?rlkey=wv83a59ie3s34w53xwlqltjib&raw=1',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/p346lcmcgo9sfzhpmhy7y/game-of-thrones-gro.jpeg?rlkey=luw6nmrw0jybrlfj5bzm8fyf6&raw=1',
+    year: 2011 / 2019,
+    duration: '73 x 57 min',
+    price: 99.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      'Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for a millennia.',
+  },
+  {
+    title: 'Star Wars: The Bad Batch',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/p9b055c66kk7949fmwj04/star-wars-bad-batch-mittel.jpeg?rlkey=mq1fi0y6vub1j9946a4tvd33h&dl=0',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/kdqcw2gdmtd3bs5cemkgk/star-wars-bad-batch-gro.jpeg?rlkey=l8ribrth85gsh8ifv5ji5p5rg&dl=0',
+    year: 2021,
+    duration: '33 x 23 min',
+    price: 39.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      "The 'Bad Batch' of elite and experimental clones make their way through an ever-changing galaxy in the immediate aftermath of the Clone Wars.",
+  },
+  {
+    title: 'Stranger Things',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/ngb3mc5udu7psqqk9p5l6/stranger-things-mittel.jpeg?rlkey=pou3wnvri5fs86m0r1wkftad8&dl=0',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/mese8m29bgt7z3g091yg0/stranger-things-gro.jpeg?rlkey=pz99jg88h8wc9iqqxnmreq8gh&dl=0',
+    year: 2016 / 2024,
+    duration: '42 x 51 min',
+    price: 59.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      'When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.',
+  },
+  {
+    title: 'The Witcher',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/4lvcg8ls8t4we69ttulsm/the-witcher-mittel.jpeg?rlkey=nwi74dyi6ob7z4vp7dbrqrdjo&dl=0',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/7tgxlb3s0y5hv7rr3gvbi/the-witcher-gro.jpeg?rlkey=tyyecqi3550ql07p29kmu6skp&dl=0',
+    year: 2019,
+    duration: '25 x 60 min',
+    price: 69.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      'Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.',
+  },
+  {
+    title: 'The Walking Dead',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/2zcl861eeenajmqqsp58e/walking-dead-mittel.jpeg?rlkey=hz16yqawwoaps77vb0q186nrw&dl=0',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/nff95223p575pqk4btkjc/walking-dead-gro.jpeg?rlkey=3vcynahavpfzy6aupeg204s5s&dl=0',
+    year: 2010 / 2022,
+    duration: '177 x 44 min',
+    price: 99.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      'Sheriff Deputy Rick Grimes wakes up from a coma to learn the world is in ruins and must lead a group of survivors to stay alive.',
+  },
+  {
+    title: 'Wednesday',
+    poster_small:
+      'https://www.dropbox.com/scl/fi/8gh5iarcijpb8oc1ozzhy/wednesday-addams-mittel.jpeg?rlkey=ipluvybzh81t08s1nmm5sxswp&dl=0',
+    poster_large:
+      'https://www.dropbox.com/scl/fi/xul6sqwjuxna5u17jq37j/wednesday-addams-gro.jpeg?rlkey=3vfx89c37xoh3bw8gdlwqsaw9&dl=0',
+    year: 2022,
+    duration: '9 x 45 min',
+    price: 29.99,
+    type: 'tv series',
+    bookmarked_by: [],
+    description:
+      "Follows Wednesday Addams' years as a student, when she attempts to master her emerging psychic ability, thwart a killing spree, and solve the mystery that embroiled her parents.",
+  },
 ]);
