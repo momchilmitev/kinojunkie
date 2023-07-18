@@ -1,13 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../shared/movies.service';
 
 interface Movie {
   id: string,
   title: string,
   poster_large: string,
   poster_small: string,
-  year: number,
-  duration: number
+  year: number|string,
+  duration: number|string,
+  type: string,
+  bookmarked_by: string[],
+  description: string,
 }
 @Component({
   selector: 'app-movies',
@@ -16,20 +19,12 @@ interface Movie {
 })
 export class MoviesComponent implements OnInit {
   constructor (
-    private http: HttpClient
+    private moviesService: MoviesService,
   ) {}
 
   movies: Movie[] = []
 
   ngOnInit (): void {
-    this.http.get<Movie[]>('http://0.0.0.0:3000/movies').subscribe(v => {
-      console.log(v);
-      this.movies = v
-    })
-  }
-
-  imageLoaded() {
-    console.log('image loaded');
-    
+    this.moviesService.allMovies().subscribe(m => this.movies = m)
   }
 }

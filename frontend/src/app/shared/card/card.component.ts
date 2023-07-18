@@ -5,8 +5,11 @@ interface Movie {
   title: string,
   poster_large: string,
   poster_small: string,
-  year: number,
-  duration: number
+  year: number|string,
+  duration: number|string,
+  type: string,
+  bookmarked_by: string[],
+  description: string,
 }
 
 @Component({
