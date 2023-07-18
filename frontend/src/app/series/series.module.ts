@@ -3,17 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { SeriesRoutingModule } from './series-routing.module';
 import { SeriesComponent } from './series.component';
-import { CardComponent } from '../shared/card/card.component';
-
-
+import { CardModule } from '../shared/card/card.module';
 @NgModule({
   declarations: [
     SeriesComponent,
-    CardComponent,
   ],
   imports: [
     CommonModule,
-    SeriesRoutingModule
+    SeriesRoutingModule,
+    CardModule
   ]
 })
 export class SeriesModule { }

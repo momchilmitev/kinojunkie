@@ -7,12 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { GridModule } from './core/grid/grid.module'
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CardComponent } from './shared/card/card.component';
+import { CardModule } from './shared/card/card.module';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CardComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -20,6 +19,7 @@ import { CardComponent } from './shared/card/card.component';
     BrowserModule,
     GridModule,
     HttpClientModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
