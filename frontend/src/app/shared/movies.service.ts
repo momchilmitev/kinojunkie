@@ -21,12 +21,14 @@ export class MoviesService {
   constructor( private http: HttpClient) { }
 
   all() {
-    
+    return this.http.get<Movie[]>('http://0.0.0.0:3000/records');
   }
 
   allMovies() {
-    return this.http.get<Movie[]>('http://0.0.0.0:3000/movies');
+    return this.http.get<Movie[]>('http://0.0.0.0:3000/records/movies');
   }
 
-  allSeries() {}
+  allSeries() {
+    return this.http.get<Movie[]>('http://0.0.0.0:3000/records/series');
+  }
 }

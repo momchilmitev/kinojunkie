@@ -13,16 +13,4 @@ interface Movie {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  movie!: Movie
-
-  constructor(
-    private http: HttpClient
-  ) {}
-
-  ngOnInit (): void {
-    this.http.get<Movie[]>('http://0.0.0.0:3000/movies').subscribe(v => {
-      this.movie = v[0]
-    })
-  }
-}
+export class AppComponent {}

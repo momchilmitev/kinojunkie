@@ -9,4 +9,12 @@ export class MoviesService {
   async findAll(): Promise<Movie[]> {
     return this.movieModel.find().exec();
   }
+
+  async findAllMovies(): Promise<Movie[]> {
+    return this.movieModel.find({ type: 'movie' }).exec();
+  }
+
+  async findAllSeries(): Promise<Movie[]> {
+    return this.movieModel.find({ type: 'tv series' }).exec();
+  }
 }
