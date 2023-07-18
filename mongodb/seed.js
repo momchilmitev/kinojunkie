@@ -8,6 +8,10 @@ db.movies.insertMany([
     year: 2010,
     duration: 148,
     price: 6.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
   },
   {
     title: 'Aquaman',
@@ -18,6 +22,10 @@ db.movies.insertMany([
     year: 2018,
     duration: 143,
     price: 9.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'Arthur Curry, the human-born heir to the underwater kingdom of Atlantis, goes on a quest to prevent a war between the worlds of ocean and land.',
   },
   {
     title: 'Avengers Endgame',
@@ -28,6 +36,10 @@ db.movies.insertMany([
     year: 2019,
     duration: 181,
     price: 9.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      "After the devastating events of Отмъстителите: Война без край (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
   },
   {
     title: 'Black Widow',
@@ -38,6 +50,10 @@ db.movies.insertMany([
     year: 2021,
     duration: 134,
     price: 12.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'Natasha Romanoff confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.',
   },
   {
     title: 'Godzilla',
@@ -48,6 +64,10 @@ db.movies.insertMany([
     year: 2014,
     duration: 123,
     price: 8.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'The world is beset by the appearance of monstrous creatures, but one of them may be the only one who can save humanity.',
   },
   {
     title: 'Godzilla vs Kong',
@@ -58,6 +78,10 @@ db.movies.insertMany([
     year: 2021,
     duration: 113,
     price: 10.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'The epic next chapter in the cinematic Monsterverse pits two of the greatest icons in motion picture history against each other--the fearsome Godzilla and the mighty Kong--with humanity caught in the balance.',
   },
   {
     title: 'John Wick',
@@ -68,6 +92,10 @@ db.movies.insertMany([
     year: 2014,
     duration: 101,
     price: 7.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'An ex-hitman comes out of retirement to track down the gangsters who killed his dog and stole his car.',
   },
   {
     title: 'Joker',
@@ -78,6 +106,10 @@ db.movies.insertMany([
     year: 2019,
     duration: 122,
     price: 9.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      "The rise of Arthur Fleck, from aspiring stand-up comedian and pariah to Gotham's clown prince and leader of the revolution.",
   },
   {
     title: 'Suicide Squad',
@@ -88,6 +120,10 @@ db.movies.insertMany([
     year: 2016,
     duration: 123,
     price: 8.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'A secret government agency recruits some of the most dangerous incarcerated super-villains to form a defensive task force. Their first mission: save the world from the apocalypse.',
   },
   {
     title: 'The Last Jedi',
@@ -98,6 +134,10 @@ db.movies.insertMany([
     year: 2017,
     duration: 152,
     price: 7.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'The Star Wars saga continues as new heroes and galactic legends go on an epic adventure, unlocking mysteries of the Force and shocking revelations of the past.',
   },
   {
     title: 'The Lion King',
@@ -108,6 +148,10 @@ db.movies.insertMany([
     year: 2019,
     duration: 118,
     price: 9.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.',
   },
   {
     title: 'The Matrix Resurrections',
@@ -118,5 +162,9 @@ db.movies.insertMany([
     year: 2021,
     duration: 148,
     price: 12.99,
+    type: 'movie',
+    bookmarked_by: [],
+    description:
+      'Return to a world of two realities: one, everyday life; the other, what lies behind it. To find out if his reality is a construct, to truly know himself, Mr. Anderson will have to choose to follow the white rabbit once more.',
   },
 ]);
