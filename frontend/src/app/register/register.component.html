@@ -42,8 +42,11 @@
           Confirm the password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      <button mat-fab extended color="primary">
-        Register
+      <button mat-fab extended color="primary" class="register-btn" [disabled]="registerForm.invalid || isLoading">
+        <span class="register-btn__content">
+          Register
+          <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+        </span>
       </button>
       <p>
         Already have an account? <a routerLink="/login">Log in</a>

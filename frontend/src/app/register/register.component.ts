@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,8 +15,9 @@ export class RegisterComponent {
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]],
   })
+  isLoading = false;
 
-  constructor (private fb: FormBuilder) {}
+  constructor (private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   get firstName() {
     return this.registerForm.controls.firstName;
@@ -36,7 +39,13 @@ export class RegisterComponent {
   }
 
   register () {
-    console.log(this.registerForm.value)
+    this.isLoading = true;
+    this.authService.register(this.registerForm.value).subscribe(r => {
+      console.log(r);
+      this.isLoading = false;
+      this.router.navigate(['/login']);
+      this.registerForm.reset();
+    })
   }
 
 }

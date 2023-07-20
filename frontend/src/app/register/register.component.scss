@@ -21,6 +21,14 @@
   margin-bottom: 20px;
 }
 
+.register-btn {
+  & .register-btn__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
 p {
   text-align: center;
 }
