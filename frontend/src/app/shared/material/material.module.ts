@@ -4,8 +4,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
 
-const materialModules: any[] = [MatGridListModule, MatListModule, MatIconModule, MatMenuModule, MatButtonModule];
+const materialModules: any[] = [
+  MatGridListModule, MatListModule, MatIconModule, MatMenuModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule
+];
 
 @NgModule({
   declarations: [],
