@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../shared/movies.service';
-import { Movie } from '@types';
+import { AppState, Movie } from '@types';
+import { Store, select } from '@ngrx/store';
+import * as MoviesActions from '../shared/stores/movies/actions';
+import { Observable } from 'rxjs';
+import { isLoadingSelector, errorSelector, moviesSelector } from '../shared/stores/movies/selectors';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  constructor (
-    private moviesService: MoviesService,
-  ) {}
+  isLoading$!: Observable<boolean>;
+  error$!: Observable<string | null>;
+  movies$!: Observable<Movie[]>;
 
-  movies: Movie[] = []
+  constructor (
+    private strore: Store<AppState>
+  ) {
+    this.isLoading$ = this.strore.pipe(select(isLoadingSelector));
+    this.error$ = this.strore.pipe(select(errorSelector));
+    this.movies$ = this.strore.pipe(select(moviesSelector));
+  }
 
   ngOnInit (): void {
-    this.moviesService.allMovies().subscribe(m => this.movies = m)
+    this.strore.dispatch(MoviesActions.getMovies());
   }
 }

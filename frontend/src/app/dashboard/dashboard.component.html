@@ -1,1 +1,1 @@
-<app-card *ngFor="let r of records" [movie]="r"></app-card>
+<app-card *ngFor="let r of records$ | async" [movie]="r"></app-card>

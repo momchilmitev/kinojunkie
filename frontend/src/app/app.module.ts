@@ -11,6 +11,8 @@ import { CardModule } from './shared/card/card.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { MoviesEffects } from './shared/stores/movies/effects';
+import { reducers } from './shared/stores/movies/reducers';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,8 +25,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     GridModule,
     HttpClientModule,
     CardModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({
+      'movies': reducers,
+    }, {}),
+    EffectsModule.forRoot([MoviesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
