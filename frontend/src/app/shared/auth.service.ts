@@ -13,6 +13,6 @@ export class AuthService {
   }
 
   login(userData: any) {
-    return this.http.post('http://0.0.0.0:3000/auth/login', userData)
+    return this.http.post<{access_token: string}>('http://0.0.0.0:3000/auth/login', userData)
   }
 }

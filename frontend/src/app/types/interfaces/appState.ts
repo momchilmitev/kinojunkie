@@ -1,5 +1,7 @@
-import { MoviesStore } from "./moviesState";
+import { AuthState } from "./authState";
+import { MoviesState } from "./moviesState";
 
 export interface AppState {
-  movies: MoviesStore;
+  movies: MoviesState;
+  auth: AuthState;
 }

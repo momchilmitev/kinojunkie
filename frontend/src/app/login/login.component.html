@@ -21,10 +21,10 @@
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      <button mat-fab extended color="primary" class="login-btn" [disabled]="loginForm.invalid || isLoading">
+      <button mat-fab extended color="primary" class="login-btn" [disabled]="loginForm.invalid || (isLoading$ | async)">
         <span class="login-btn__content">
           Login
-          <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+          <mat-spinner diameter="20" *ngIf="isLoading$ | async"></mat-spinner>
         </span>
       </button>
       <p>

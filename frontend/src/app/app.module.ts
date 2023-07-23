@@ -12,7 +12,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MoviesEffects } from './shared/stores/movies/effects';
-import { reducers } from './shared/stores/movies/reducers';
+import { AuthEffects } from './shared/stores/auth/effects';
+import { reducers as MoviesReducers } from './shared/stores/movies/reducers';
+import { reducers as AuthReducers } from './shared/stores/auth/reducers';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +28,10 @@ import { reducers } from './shared/stores/movies/reducers';
     HttpClientModule,
     CardModule,
     StoreModule.forRoot({
-      'movies': reducers,
+      'movies': MoviesReducers,
+      'auth': AuthReducers,
     }, {}),
-    EffectsModule.forRoot([MoviesEffects]),
+    EffectsModule.forRoot([MoviesEffects, AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],

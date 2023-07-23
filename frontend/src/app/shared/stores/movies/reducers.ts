@@ -1,8 +1,8 @@
 import { createReducer, on } from "@ngrx/store";
-import { MoviesStore } from "@types";
+import { MoviesState } from "@types";
 import * as moviesActions from './actions';
 
-export const initialSate: MoviesStore = {
+export const initialState: MoviesState = {
   isLoading: false,
   records: [],
   movies: [],
@@ -11,7 +11,7 @@ export const initialSate: MoviesStore = {
 };
 
 export const reducers = createReducer(
-  initialSate,
+  initialState,
   on(moviesActions.getRecords, (state) => ({ ...state, isLoading: true })),
   on(moviesActions.getRecordsSuccess, (state, action) => ({
     ...state,

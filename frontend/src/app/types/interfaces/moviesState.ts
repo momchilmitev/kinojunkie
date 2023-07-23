@@ -1,6 +1,6 @@
 import { Movie } from './movie';
 
-export interface MoviesStore {
+export interface MoviesState {
   isLoading: boolean;
   records: Movie[];
   movies: Movie[];
