@@ -11,4 +11,8 @@ export class AuthService {
   register(userData: any) {
     return this.http.post('http://0.0.0.0:3000/auth/register', userData)
   }
+
+  login(userData: any) {
+    return this.http.post('http://0.0.0.0:3000/auth/login', userData)
+  }
 }
