@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: DashboardComponent },
   { path: 'series', loadChildren: () => import('./series/series.module').then(m => m.SeriesModule) },
   { path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule) },
-  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }
+  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
