@@ -9,8 +9,8 @@ import { tokenSelector } from '../shared/stores/auth/selectors';
 export class JwtInterceptor implements HttpInterceptor {
     token$!: Observable<string | null>;
 
-    constructor(private strore: Store<AppState>) {
-      this.token$ = this.strore.pipe(select(tokenSelector));
+    constructor(private store: Store<AppState>) {
+      this.token$ = this.store.pipe(select(tokenSelector));
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
