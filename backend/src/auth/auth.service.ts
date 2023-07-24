@@ -32,4 +32,17 @@ export class AuthService {
       access_token: await this.jwtService.signAsync(payload),
     };
   }
+
+  async getProfile(id): Promise<any> {
+    const foundUser = await this.usersService.findById(id);
+
+    const payload = {
+      id: foundUser._id,
+      email: foundUser.email,
+      firstName: foundUser.firstName,
+      lastName: foundUser.lastName,
+    };
+
+    return payload;
+  }
 }
