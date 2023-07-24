@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, first, mergeMap } from 'rxjs';
 import { AppState } from '@types';
 import { Store, select } from '@ngrx/store';
 import { tokenSelector } from '../shared/stores/auth/selectors';
@@ -14,17 +14,15 @@ export class JwtInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // add auth header with jwt if account is logged in and request is to the api url
-        return this.token$.pipe(
-          switchMap(t => {
-            if (t) {
-              request = request.clone({
-                  setHeaders: { Authorization: `Bearer ${t}` }
-              });
-            }
-  
-            return next.handle(request);
-          })
-        )
+      // add auth header with jwt if account is logged in and request is to the api url
+      return this.token$.pipe(
+        first(),
+        mergeMap(t => {
+          const authReq = !!t ? request.clone({
+            setHeaders: { Authorization: 'Bearer ' + t },
+          }) : request;
+          return next.handle(authReq);
+        })
+      )
     }
 }
