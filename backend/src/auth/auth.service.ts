@@ -34,8 +34,8 @@ export class AuthService {
     };
   }
 
-  async getProfile(id): Promise<any> {
-    const foundUser = await this.usersService.findById(id);
+  async updateProfile(data): Promise<any> {
+    const foundUser = await this.usersService.updateUser(data);
 
     const payload = {
       id: foundUser._id,

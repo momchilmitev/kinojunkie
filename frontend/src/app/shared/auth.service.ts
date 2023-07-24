@@ -15,4 +15,8 @@ export class AuthService {
   login(userData: any) {
     return this.http.post<{access_token: string}>('http://0.0.0.0:3000/auth/login', userData)
   }
+
+  updateUser(userData: any) {
+    return this.http.put('http://0.0.0.0:3000/auth/profile', userData)
+  }
 }

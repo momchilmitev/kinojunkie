@@ -15,14 +15,14 @@ export class MoviesComponent implements OnInit {
   movies$!: Observable<Movie[]>;
 
   constructor (
-    private strore: Store<AppState>
+    private store: Store<AppState>
   ) {
-    this.isLoading$ = this.strore.pipe(select(isLoadingSelector));
-    this.error$ = this.strore.pipe(select(errorSelector));
-    this.movies$ = this.strore.pipe(select(moviesSelector));
+    this.isLoading$ = this.store.pipe(select(isLoadingSelector));
+    this.error$ = this.store.pipe(select(errorSelector));
+    this.movies$ = this.store.pipe(select(moviesSelector));
   }
 
   ngOnInit (): void {
-    this.strore.dispatch(MoviesActions.getMovies());
+    this.store.dispatch(MoviesActions.getMovies());
   }
 }

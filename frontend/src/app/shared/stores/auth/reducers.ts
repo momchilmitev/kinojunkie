@@ -25,4 +25,15 @@ export const reducers = createReducer(
     error: action.error,
   })),
   on(AuthActions.logout, (state) => ({ ...state, token: '' })),
+  on(AuthActions.updateUser, (state) => ({ ...state, isLoading: true })),
+  on(AuthActions.updateUserSuccess, (state, action) => ({
+    ...state,
+    isLoading: false,
+    user: action.user
+  })),
+  on(AuthActions.updateUserFailure, (state, action) => ({
+    ...state,
+    isLoading: false,
+    error: action.error,
+  })),
 );

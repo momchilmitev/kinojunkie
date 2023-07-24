@@ -7,8 +7,10 @@ import { CreateUserDto } from './create-user.dto';
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
-  async findById(id) {
-    return this.userModel.findOne({ _id: id }).exec();
+  async updateUser(data) {
+    return this.userModel
+      .findOneAndUpdate({ _id: data.id }, data, { new: true })
+      .exec();
   }
 
   async findByEmail(user: User): Promise<any | undefined> {

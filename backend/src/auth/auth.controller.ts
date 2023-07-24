@@ -4,9 +4,8 @@ import {
   Post,
   HttpCode,
   HttpStatus,
-  Get,
   UseGuards,
-  Request,
+  Put,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { User } from '../users/user.schema';
@@ -28,8 +27,8 @@ export class AuthController {
   }
 
   @UseGuards(AuthGuard)
-  @Get('profile')
-  getProfile(@Request() req) {
-    return this.authService.getProfile(req.id);
+  @Put('profile')
+  getProfile(@Body() data) {
+    return this.authService.updateProfile(data);
   }
 }
