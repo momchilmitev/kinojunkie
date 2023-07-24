@@ -22,4 +22,5 @@ export const reducers = createReducer(
     isLoading: false,
     error: action.error,
   })),
+  on(AuthActions.logout, (state) => ({ ...state, token: '' })),
 );
