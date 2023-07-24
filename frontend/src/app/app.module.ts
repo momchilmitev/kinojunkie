@@ -1,6 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { MoviesEffects } from './shared/stores/movies/effects';
 import { AuthEffects } from './shared/stores/auth/effects';
 import { reducers as MoviesReducers } from './shared/stores/movies/reducers';
 import { reducers as AuthReducers } from './shared/stores/auth/reducers';
+import { JwtInterceptor } from './interceptors/jwt';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,9 @@ import { reducers as AuthReducers } from './shared/stores/auth/reducers';
     EffectsModule.forRoot([MoviesEffects, AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
