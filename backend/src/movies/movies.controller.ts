@@ -1,7 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { Movie } from './movie.schema';
-
 @Controller('records')
 export class MoviesController {
   constructor(private readonly moviesService: MoviesService) {}
@@ -22,5 +21,11 @@ export class MoviesController {
   async findAllseries(): Promise<Movie[]> {
     const movies = await this.moviesService.findAllSeries();
     return movies;
+  }
+
+  @Get('details')
+  async getRecord(@Query('id') id: string): Promise<Movie> {
+    const record = await this.moviesService.findRecord(id);
+    return record;
   }
 }

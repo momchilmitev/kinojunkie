@@ -31,4 +31,8 @@ export class MoviesService {
   allSeries() {
     return this.http.get<Movie[]>('http://0.0.0.0:3000/records/series');
   }
+
+  getRecord(id: string) {
+    return this.http.get<Movie>('http://0.0.0.0:3000/records/details', { params: { id } });
+  }
 }

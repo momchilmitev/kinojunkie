@@ -17,4 +17,8 @@ export class MoviesService {
   async findAllSeries(): Promise<Movie[]> {
     return this.movieModel.find({ type: 'tv series' }).exec();
   }
+
+  async findRecord(id: string): Promise<Movie> {
+    return this.movieModel.findOne({ _id: id }).exec();
+  }
 }
