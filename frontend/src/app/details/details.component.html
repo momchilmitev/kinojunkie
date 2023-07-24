@@ -1,6 +1,17 @@
-<section>
-  <img [src]="record.poster_large" [alt]="record.title">
-  <div>
-    <p></p>
+<section class="record-container">
+  <div class="record-poster">
+    <img [src]="record.poster_large" [alt]="record.title">
+  </div>
+  <div class="record-details">
+    <h1>{{ record.title }}</h1>
+    <p>{{ record.description }}</p>
+    <p>Year: {{ record.year }}</p>
+    <p>Duration: {{ record.duration }} min</p>
+    <div class="record-footer">
+      <p>Price: {{ record.price }} $</p>
+      <button mat-icon-button>
+        <mat-icon aria-hidden="false" aria-label="Add to cart" fontIcon="shopping_cart"></mat-icon>
+      </button>
+    </div>
   </div>
 </section>
