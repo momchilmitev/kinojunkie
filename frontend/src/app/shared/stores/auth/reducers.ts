@@ -1,3 +1,4 @@
+import jwt_decode from "jwt-decode";
 import { createReducer, on } from "@ngrx/store";
 import { AuthState } from "src/app/types/interfaces/authState";
 import * as AuthActions from './actions';
@@ -16,6 +17,7 @@ export const reducers = createReducer(
     ...state,
     isLoading: false,
     token: action.token,
+    user: jwt_decode(action.token)
   })),
   on(AuthActions.loginFailure, (state, action) => ({
     ...state,
