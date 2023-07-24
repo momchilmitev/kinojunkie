@@ -1,5 +1,5 @@
 export interface Movie {
-  id: string,
+  _id?: string,
   title: string,
   poster_large: string,
   poster_small: string,
@@ -8,4 +8,5 @@ export interface Movie {
   type: string,
   bookmarked_by: string[],
   description: string,
+  price?: number|string;
 }
