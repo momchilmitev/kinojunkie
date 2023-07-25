@@ -4,6 +4,16 @@
   overflow: hidden;
   box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .54);
 
+  .card-container {
+    position: relative;
+  }
+
+  .bookmark-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
   .img-container {
     width: 100%;
     height: 500px;

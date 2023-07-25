@@ -2,10 +2,14 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { MoviesService } from "../../movies.service";
 import * as MoviesActions from './actions';
-import { catchError, map, mergeMap, of } from "rxjs";
+import { catchError, map, mergeMap, of, withLatestFrom } from "rxjs";
+import { Store } from "@ngrx/store";
+import { AppState } from "@types";
 
 @Injectable()
 export class MoviesEffects {
+  constructor(private actions$: Actions, private moviesService: MoviesService, private store: Store<AppState>) {}
+  
   getRecords$ = createEffect(() => 
     this.actions$.pipe(
       ofType(MoviesActions.getRecords),
@@ -54,5 +58,55 @@ export class MoviesEffects {
     )
   );
 
-  constructor(private actions$: Actions, private moviesService: MoviesService) {}
+  getBookmarks$ = createEffect(() => 
+    this.actions$.pipe(
+      ofType(MoviesActions.getBookmarks),
+      withLatestFrom(this.store),
+      mergeMap(([action, appStore]) => {
+        return this.moviesService.getBookmarks(appStore.auth.user.sub || appStore.auth.user.id).pipe(
+          map(
+            (bookmarks) => MoviesActions.getBookmarksSuccess({ bookmarks }),
+            catchError(
+              (err) => of(MoviesActions.getBookmarksFailure({ error: err.message }))
+            )
+          )
+        );
+      })
+    )
+  );
+
+  bookmark$ = createEffect(() => 
+    this.actions$.pipe(
+      ofType(MoviesActions.bookmark),
+      withLatestFrom(this.store),
+      mergeMap(([action, appStore]) => {
+        return this.moviesService.bookmark({ user_id: appStore.auth.user.sub || appStore.auth.user.id, record_id: action.record_id }).pipe(
+          map(
+            () => MoviesActions.bookmarkSuccess(),
+            catchError(
+              (err) => of(MoviesActions.bookmarkFailure({ error: err.message }))
+            )
+          )
+        );
+      })
+    )
+  );
+
+  unbookmark$ = createEffect(() => 
+    this.actions$.pipe(
+      ofType(MoviesActions.unbookmark),
+      withLatestFrom(this.store),
+      mergeMap(([action, appStore]) => {
+        return this.moviesService.unbookmark({ user_id: appStore.auth.user.sub || appStore.auth.user.id, record_id: action.record_id }).pipe(
+          map(
+            () => MoviesActions.unbookmarkSuccess(),
+            catchError(
+              (err) => of(MoviesActions.unbookmarkFailure({ error: err.message }))
+            )
+          )
+        );
+      })
+    )
+  );
+
 }

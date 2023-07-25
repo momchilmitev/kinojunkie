@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Query, Put, Body } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { Movie } from './movie.schema';
 @Controller('records')
@@ -27,5 +27,20 @@ export class MoviesController {
   async getRecord(@Query('id') id: string): Promise<Movie> {
     const record = await this.moviesService.findRecord(id);
     return record;
+  }
+
+  @Get('bookmarks')
+  async getBookmarks(@Query('id') id: string): Promise<Movie[]> {
+    return await this.moviesService.findAllBookmarks(id);
+  }
+
+  @Put('bookmark')
+  async bookmarkRecord(@Body() body) {
+    return await this.moviesService.bookmarkRecord(body.data);
+  }
+
+  @Put('unbookmark')
+  async unbookmarkRecord(@Body() body) {
+    await this.moviesService.unbookmarkRecord(body.data);
   }
 }

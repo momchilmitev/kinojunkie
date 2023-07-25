@@ -18,7 +18,33 @@ export class MoviesService {
     return this.movieModel.find({ type: 'tv series' }).exec();
   }
 
+  async findAllBookmarks(user_id: string): Promise<Movie[]> {
+    return this.movieModel.find({ bookmarked_by: { $in: [user_id] } }).exec();
+  }
+
   async findRecord(id: string): Promise<Movie> {
-    return this.movieModel.findOne({ _id: id }).exec();
+    return this.movieModel.findById({ _id: id }).exec();
+  }
+
+  async bookmarkRecord(data: {
+    user_id: string;
+    record_id: string;
+  }): Promise<Movie> {
+    return this.movieModel
+      .findOneAndUpdate(
+        { _id: data.record_id },
+        { $push: { bookmarked_by: data.user_id } },
+      )
+      .exec();
+  }
+
+  async unbookmarkRecord(data: {
+    user_id: string;
+    record_id: string;
+  }): Promise<Movie> {
+    return this.movieModel.findOneAndUpdate(
+      { _id: data.record_id },
+      { $pull: { bookmarked_by: data.user_id } },
+    );
   }
 }

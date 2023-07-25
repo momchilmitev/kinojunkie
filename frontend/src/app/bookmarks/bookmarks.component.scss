@@ -1,0 +1,11 @@
+:host {
+  flex: 1;
+  gap: 25px;
+  display: flex;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+  height: 90%;
+  align-items: center;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}

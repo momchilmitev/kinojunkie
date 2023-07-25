@@ -1,4 +1,8 @@
-<article>
+<article class="card-container">
+  <button *ngIf="(user$ | async)" mat-fab color="primary" class="bookmark-btn" (click)="bookmark()">
+    <mat-icon aria-hidden="false" [color]="isBookmarked ? 'accent' : ''" aria-label="Add to cart" fontIcon="bookmarks"></mat-icon>
+    <!-- <mat-spinner diameter="20" *ngIf="bookmarking"></mat-spinner> -->
+  </button>
   <div class="img-container">
     <a [routerLink]="['/details', movie._id]">
       <img [src]="movie.poster_small" [alt]="movie.title">

@@ -1,1 +1,1 @@
-<p>bookmarks works!</p>
+<app-card *ngFor="let b of bookmarks$ | async" [movie]="b"></app-card>

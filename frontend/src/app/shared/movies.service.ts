@@ -35,4 +35,16 @@ export class MoviesService {
   getRecord(id: string) {
     return this.http.get<Movie>('http://0.0.0.0:3000/records/details', { params: { id } });
   }
+
+  getBookmarks(id: string) {
+    return this.http.get<Movie[]>('http://0.0.0.0:3000/records/bookmarks', { params: { id } });
+  }
+ 
+  bookmark(data: { user_id: any; record_id: any }) {
+    return this.http.put('http://0.0.0.0:3000/records/bookmark', { data });
+  }
+
+  unbookmark(data: { user_id: any; record_id: any }) {
+    return this.http.put('http://0.0.0.0:3000/records/unbookmark', { data });
+  }
 }
