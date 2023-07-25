@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
   { path: 'details/:id', loadChildren: () => import('./details/details.module').then(m => m.DetailsModule) },
   { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) },
+  { path: 'bookmarks', loadChildren: () => import('./bookmarks/bookmarks.module').then(m => m.BookmarksModule) },
   { path: '**', redirectTo: 'not-found' }
 ];
 @NgModule({
