@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent {
   token$!: Observable<string | null>;
+  isDarkMode = false;
 
   constructor (
     private strore: Store<AppState>,
@@ -23,5 +24,15 @@ export class NavigationComponent {
   logout() {
     this.strore.dispatch(AuthActions.logout());
     this.router.navigate(['/login'])
+  }
+
+  toggleMode() {
+    this.isDarkMode = !this.isDarkMode;
+
+    if (this.isDarkMode) {
+      document.body.classList.add('mat-app-background')
+    } else {
+      document.body.classList.remove('mat-app-background')
+    }
   }
 }

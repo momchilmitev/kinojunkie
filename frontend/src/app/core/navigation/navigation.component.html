@@ -1,5 +1,5 @@
 <nav>
-  <mat-icon aria-hidden="false" aria-label="Logo" fontIcon="movie"></mat-icon>
+  <mat-icon class="logo" color="warn" aria-hidden="false" aria-label="Logo" fontIcon="movie"></mat-icon>
   <mat-list role="navigation">
     <a mat-list-item role="listitem" routerLink="">
       <mat-icon aria-hidden="false" aria-label="Dashboard" fontIcon="dashboard"></mat-icon>
@@ -14,8 +14,12 @@
       <mat-icon aria-hidden="false" aria-label="Book marked items" fontIcon="bookmarks"></mat-icon>
     </a>
   </mat-list>
-  <div>
-    <button mat-icon-button  [matMenuTriggerFor]="menu">
+  <div class="nav-actions">
+    <button mat-mini-fab color="primary" (click)="toggleMode()">
+      <mat-icon *ngIf="!isDarkMode">brightness_5</mat-icon>
+      <mat-icon *ngIf="isDarkMode">bedtime</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary"  [matMenuTriggerFor]="menu">
       <mat-icon aria-hidden="false" aria-label="User" fontIcon="account_circle"></mat-icon>
     </button>
     <mat-menu #menu="matMenu">

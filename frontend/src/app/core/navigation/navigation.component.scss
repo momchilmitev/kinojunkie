@@ -12,8 +12,18 @@
     height: 100%;
   }
 
-  nav div:last-child {
+  .mat-icon.logo {
+    scale: 1.5;
+  }
+
+  .nav-actions {
+    display: flex;
+    flex-direction: column;
     margin-top: auto;
+
+    & button:first-child {
+      margin-bottom: 10px;
+    }
   }
 
   nav > mat-list {
