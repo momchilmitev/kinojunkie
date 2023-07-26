@@ -1,0 +1,17 @@
+<mat-list-item class="cart-item" role="listitem">
+  <div class="cart-item-container">
+    <div class="cart-item-qty">
+      <button mat-icon-button aria-label="Add one to cart item quantity" (click)="inc(movie)">
+        <mat-icon>add</mat-icon>
+      </button>
+      {{ movie.qty || 0 }}
+      <button mat-icon-button aria-label="Subtract one to cart item quantity" (click)="dec(movie)">
+        <mat-icon>remove</mat-icon>
+      </button>
+    </div>
+    {{ movie.title }}
+    <button mat-icon-button color="warn" (click)="removeFromCart(movie)">
+      <mat-icon aria-hidden="false" aria-label="Remove from cart" fontIcon="delete"></mat-icon>
+    </button>
+  </div>
+</mat-list-item>

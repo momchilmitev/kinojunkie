@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
 
 const materialModules: any[] = [
   MatGridListModule,
@@ -21,8 +22,8 @@ const materialModules: any[] = [
   MatCardModule,
   MatProgressSpinnerModule,
   MatDialogModule,
+  MatBadgeModule,
 ];
-
 @NgModule({
   declarations: [],
   imports: [

@@ -1,0 +1,23 @@
+:host {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+
+  h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  [mat-dialog-content] {
+    padding: 5px;
+  }
+
+  .mat-dialog-actions {
+    margin-top: auto;
+  }
+
+  button {
+    width: 100%;
+  }
+}

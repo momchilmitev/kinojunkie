@@ -41,4 +41,8 @@ export class NavigationComponent {
   openCart() {
     this.cartService.openDialog()
   }
+
+  cartLength() {
+    return this.cartService.cartCount;
+  }
 }

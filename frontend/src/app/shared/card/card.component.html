@@ -16,7 +16,7 @@
   </div>
   <div class="card-footer">
     <h3>{{ movie.title }}</h3>
-    <button mat-mini-fab color="primary">
+    <button mat-mini-fab color="primary" (click)="addToCart(movie)">
       <mat-icon aria-hidden="false" aria-label="Add to cart" fontIcon="shopping_cart"></mat-icon>
     </button>
   </div>

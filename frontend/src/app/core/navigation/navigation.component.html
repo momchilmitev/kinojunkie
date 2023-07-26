@@ -15,7 +15,7 @@
     </a>
   </mat-list>
   <div class="nav-actions">
-    <button mat-mini-fab color="primary" (click)="openCart()">
+    <button mat-mini-fab color="primary" [matBadge]="cartLength()" matBadgeColor="warn" (click)="openCart()">
       <mat-icon aria-hidden="false" aria-label="Open cart" fontIcon="shopping_cart"></mat-icon>
     </button>
     <button mat-mini-fab color="primary" (click)="toggleMode()">

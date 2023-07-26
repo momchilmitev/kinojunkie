@@ -9,4 +9,6 @@ export interface Movie {
   bookmarked_by: string[],
   description: string,
   price?: number|string;
+  remove?: boolean;
+  qty?: number;
 }

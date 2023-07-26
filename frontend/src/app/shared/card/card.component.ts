@@ -5,6 +5,7 @@ import { Observable, Subscription } from 'rxjs';
 import { errorSelector, bookmarkingSelector } from '../stores/movies/selectors';
 import { userSelector } from '../stores/auth/selectors';
 import * as MoviesActions from '../../shared/stores/movies/actions';
+import { ShoppingCartService } from '../shopping-cart.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -19,7 +20,11 @@ export class CardComponent implements OnInit, OnDestroy {
   userSunscription$!: Subscription;
   isBookmarked = false;
 
-  constructor (private store: Store<AppState>) {
+  constructor (
+    private store: Store<AppState>,
+    private cartService: ShoppingCartService
+  )
+  {
     this.error$ = this.store.pipe(select(errorSelector));
     this.user$ = this.store.pipe(select(userSelector));
   }
@@ -51,5 +56,9 @@ export class CardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy (): void {
     this.userSunscription$.unsubscribe();
+  }
+
+  addToCart(item: Movie) {
+    this.cartService.addItem(item);
   }
 }
