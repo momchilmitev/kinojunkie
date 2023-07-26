@@ -33,9 +33,19 @@
   }
 
   .card-footer {
+    position: relative;
     align-items: center;
     display: flex;
     justify-content: space-between;
     padding: 5px;
+  }
+
+  .bubble {
+    position: absolute;
+    right: 15px;
+    z-index: -1;
+    font-weight: bolder;
+    font-size: 18px;
+    opacity: 1;
   }
 }
