@@ -71,12 +71,12 @@ export class CardComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnDestroy (): void {
-    this.userSunscription$.unsubscribe();
-  }
-
   addToCart(item: Movie) {
     this.isBubbling = true;
     this.cartService.addItem(item);
+  }
+
+  ngOnDestroy (): void {
+    this.userSunscription$.unsubscribe();
   }
 }

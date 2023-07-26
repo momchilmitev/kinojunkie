@@ -8,6 +8,7 @@ import { Movie } from '../types/interfaces/movie';
 })
 export class ShoppingCartService {
   items: Movie[] = [];
+  paymentHandler: any = null;
 
   constructor(public dialog: MatDialog) { }
 
@@ -86,5 +87,41 @@ export class ShoppingCartService {
 
   clearCart() {
     this.items = [];
+  }
+
+  makePayment(amount: any) {
+    const paymentHandler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51KYcmBCKmuhJOPPhczQzRg8POfoOuW5Q0gvcIfiEJFD1lYr3oFG8CK5HZSfCLb5Tek91Q8u1kAPIwVFlN6I1UGQp00D0LbKpxs',
+      locale: 'auto',
+      token: function (stripeToken: any) {
+        console.log(stripeToken);
+        alert('Stripe token generated!');
+      },
+    });
+    paymentHandler.open({
+      name: 'Test user',
+      description: 'Movie order',
+      amount: amount * 100,
+    });
+  }
+
+  invokeStripe() {
+    if (!window.document.getElementById('stripe-script')) {
+      const script = window.document.createElement('script');
+      script.id = 'stripe-script';
+      script.type = 'text/javascript';
+      script.src = 'https://checkout.stripe.com/checkout.js';
+      script.onload = () => {
+        this.paymentHandler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_51KYcmBCKmuhJOPPhczQzRg8POfoOuW5Q0gvcIfiEJFD1lYr3oFG8CK5HZSfCLb5Tek91Q8u1kAPIwVFlN6I1UGQp00D0LbKpxs',
+          locale: 'auto',
+          token: function (stripeToken: any) {
+            console.log(stripeToken);
+            alert('Payment has been successfull!');
+          },
+        });
+      };
+      window.document.body.appendChild(script);
+    }
   }
 }

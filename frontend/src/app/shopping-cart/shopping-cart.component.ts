@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../shared/shopping-cart.service';
 
 @Component({
@@ -6,8 +6,12 @@ import { ShoppingCartService } from '../shared/shopping-cart.service';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: ShoppingCartService) {}
+
+  ngOnInit (): void {
+    this.cartService.invokeStripe();
+  }
 
   get cartItems() {
     return this.cartService.cartItems;
@@ -15,5 +19,9 @@ export class ShoppingCartComponent {
 
   get cartAmount() {
     return this.cartService.amount;
+  }
+
+  pay(amount: any) {
+    this.cartService.makePayment(amount);
   }
 }

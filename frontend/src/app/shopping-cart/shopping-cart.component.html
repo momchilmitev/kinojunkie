@@ -5,5 +5,13 @@
   </mat-list>
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Checkout {{ cartAmount | currency }}</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="pay(cartAmount)"
+  >
+    Checkout {{ cartAmount | currency }}
+  </button>
 </div>
