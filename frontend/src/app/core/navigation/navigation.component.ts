@@ -5,6 +5,7 @@ import * as AuthActions from '../../shared/stores/auth/actions';
 import { Observable } from 'rxjs';
 import { tokenSelector } from '../../shared/stores/auth/selectors';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from 'src/app/shared/shopping-cart.service';
 
 @Component({
   selector: 'app-navigation',
@@ -17,7 +18,8 @@ export class NavigationComponent {
 
   constructor (
     private strore: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private cartService: ShoppingCartService,
   ) {
     this.token$ = this.strore.pipe(select(tokenSelector));
   }
@@ -34,5 +36,9 @@ export class NavigationComponent {
     } else {
       document.body.classList.remove('mat-app-background')
     }
+  }
+
+  openCart() {
+    this.cartService.openDialog()
   }
 }

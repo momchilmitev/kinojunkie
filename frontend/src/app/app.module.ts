@@ -16,6 +16,7 @@ import { AuthEffects } from './shared/stores/auth/effects';
 import { reducers as MoviesReducers } from './shared/stores/movies/reducers';
 import { reducers as AuthReducers } from './shared/stores/auth/reducers';
 import { JwtInterceptor } from './interceptors/jwt';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { JwtInterceptor } from './interceptors/jwt';
       'auth': AuthReducers,
     }, {}),
     EffectsModule.forRoot([MoviesEffects, AuthEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    ShoppingCartModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

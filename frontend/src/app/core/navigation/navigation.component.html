@@ -15,6 +15,9 @@
     </a>
   </mat-list>
   <div class="nav-actions">
+    <button mat-mini-fab color="primary" (click)="openCart()">
+      <mat-icon aria-hidden="false" aria-label="Open cart" fontIcon="shopping_cart"></mat-icon>
+    </button>
     <button mat-mini-fab color="primary" (click)="toggleMode()">
       <mat-icon *ngIf="!isDarkMode">brightness_5</mat-icon>
       <mat-icon *ngIf="isDarkMode">bedtime</mat-icon>
