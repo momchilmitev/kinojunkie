@@ -1,19 +1,19 @@
 <nav>
   <mat-icon class="logo" color="warn" aria-hidden="false" aria-label="Logo" fontIcon="movie"></mat-icon>
-  <mat-list role="navigation">
+  <mat-nav-list role="navigation">
     <a mat-list-item role="listitem" routerLink="">
-      <mat-icon aria-hidden="false" aria-label="Dashboard" fontIcon="dashboard"></mat-icon>
+      <mat-icon aria-hidden="false" color="primary" aria-label="Dashboard" fontIcon="dashboard"></mat-icon>
     </a>
     <a mat-list-item role="listitem" routerLink="/movies">
-      <mat-icon aria-hidden="false" aria-label="Movies" fontIcon="videocam"></mat-icon>
+      <mat-icon aria-hidden="false" color="primary" aria-label="Movies" fontIcon="videocam"></mat-icon>
     </a>
     <a mat-list-item role="listitem" routerLink="/series">
-      <mat-icon aria-hidden="false" aria-label="Series" fontIcon="tv"></mat-icon>
+      <mat-icon aria-hidden="false" color="primary" aria-label="Series" fontIcon="tv"></mat-icon>
     </a>
     <a mat-list-item role="listitem" routerLink="/bookmarks">
-      <mat-icon aria-hidden="false" aria-label="Book marked items" fontIcon="bookmarks"></mat-icon>
+      <mat-icon aria-hidden="false" color="primary" aria-label="Book marked items" fontIcon="bookmarks"></mat-icon>
     </a>
-  </mat-list>
+  </mat-nav-list>
   <div class="nav-actions">
     <button mat-mini-fab color="primary" [matBadge]="cartLength()" matBadgeColor="warn" (click)="openCart()">
       <mat-icon aria-hidden="false" aria-label="Open cart" fontIcon="shopping_cart"></mat-icon>

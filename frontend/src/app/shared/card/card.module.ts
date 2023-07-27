@@ -3,8 +3,6 @@ import { RouterModule } from '@angular/router';
 import { CardComponent } from './card.component';
 import { MaterialModule } from '../material/material.module'
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 @NgModule({
   declarations: [
     CardComponent,
@@ -13,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MaterialModule,
     RouterModule,
-    BrowserAnimationsModule,
   ],
   exports: [
     CardComponent,
