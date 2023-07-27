@@ -6,6 +6,12 @@
   flex-wrap: wrap;
   height: 90%;
   align-items: center;
+  justify-content: center;
   padding-right: 20px;
   padding-bottom: 20px;
+
+  &::after {
+    content: "";
+    flex-basis: 350px;
+  }
 }
