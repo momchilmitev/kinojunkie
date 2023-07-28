@@ -1,6 +1,11 @@
 <section class="record-container">
   <div class="record-poster">
-    <img [src]="record.poster_large" [alt]="record.title">
+    <!-- <img [src]="record.poster_large" [alt]="record.title"> -->
+    <picture>
+      <source [srcset]="record.poster_large" media="(min-width: 720px)" />
+      <source [srcset]="record.poster_small" media="(max-width: 719px)" />
+      <img [src]="record.poster_large" [alt]="record.title" />
+    </picture>
   </div>
   <div class="record-details">
     <h1>{{ record.title }}</h1>
