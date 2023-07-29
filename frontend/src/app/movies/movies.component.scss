@@ -4,8 +4,14 @@
   display: flex;
   overflow-y: scroll;
   flex-wrap: wrap;
-  height: 90%;
+  height: 100%;
   align-items: center;
   padding-right: 20px;
   padding-bottom: 20px;
+  justify-content: center;
+
+  &::after {
+    content: "";
+    flex-basis: 350px;
+  }
 }

@@ -1,8 +1,10 @@
 :host {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .54);
   border-radius: 10px;
-  height: 90%;
-  padding: 10px 0;
+  height: 100%;
+  padding-top: 10px;
+  display: block;
+  margin-left: 10px;
 
   nav {
     align-items: center;

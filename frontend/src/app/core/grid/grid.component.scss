@@ -1,9 +1,29 @@
-.mat-grid-list {
+// .mat-grid-list {
+//   height: 100%;
+//   padding-bottom: 0px !important;
+// }
+
+.grid-container {
+  display: flex;
   height: 100%;
-  padding-bottom: 0px !important;
+  align-items: center;
 }
 
-.mat-grid-tile {
-  height: 100%;
-  padding-top: 0px !important;
+.grid-nav {
+  height: 90%;
 }
+
+.grid-main {
+  display: flex;
+  height: 90%;
+  margin-left: 10px;
+  overflow-y: auto;
+  padding: 5px;
+  width: 100%;
+  justify-content: center;
+}
+
+// .mat-grid-tile {
+//   height: 100%;
+//   padding-top: 0px !important;
+// }

@@ -4,11 +4,11 @@
   display: flex;
   overflow-y: scroll;
   flex-wrap: wrap;
-  height: 90%;
+  height: 100%;
   align-items: center;
-  padding-right: 20px;
-  padding-bottom: 20px;
   border-radius: 10px;
+  max-width: 1000px;
+  box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .54);
 
   .record-container {
     width: 100%;
