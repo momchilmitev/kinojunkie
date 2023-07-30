@@ -8,7 +8,7 @@
   </div>
   <div class="card-info">
     <span>{{ movie.year }}</span>
-    <span>{{ movie.duration }}min</span>
+    <span>{{ movie.duration.toString().includes('min') ? movie.duration : movie.duration + ' min' }}</span>
     <span>{{ movie.price }} $</span>
   </div>
   <div class="card-footer">
