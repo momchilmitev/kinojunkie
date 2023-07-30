@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CardComponent } from './card.component';
 import { MaterialModule } from '../material/material.module'
 import { CommonModule } from '@angular/common';
+import { AddToCartButtonModule } from '../add-to-cart-button/add-to-cart-button.module';
 @NgModule({
   declarations: [
     CardComponent,
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MaterialModule,
     RouterModule,
+    AddToCartButtonModule,
   ],
   exports: [
     CardComponent,

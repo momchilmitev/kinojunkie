@@ -1,6 +1,8 @@
 <section class="record-container">
   <div class="record-poster">
-    <!-- <img [src]="record.poster_large" [alt]="record.title"> -->
+    <button *ngIf="(user$ | async)" mat-fab color="primary" class="bookmark-btn" (click)="bookmark()">
+      <mat-icon aria-hidden="false" [color]="isBookmarked ? 'accent' : ''" aria-label="Add to cart" fontIcon="bookmarks"></mat-icon>
+    </button>
     <picture>
       <source [srcset]="record.poster_large" media="(min-width: 720px)" />
       <source [srcset]="record.poster_small" media="(max-width: 719px)" />
@@ -14,9 +16,7 @@
     <p>Duration: {{ record.duration }} min</p>
     <div class="record-footer">
       <p>Price: {{ record.price }} $</p>
-      <button mat-icon-button>
-        <mat-icon aria-hidden="false" aria-label="Add to cart" fontIcon="shopping_cart"></mat-icon>
-      </button>
+      <app-add-to-cart-button *ngIf="(user$ | async)" (clicked)="addToCart(record)" />
     </div>
   </div>
 </section>

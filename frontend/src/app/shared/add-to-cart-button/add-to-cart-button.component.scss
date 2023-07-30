@@ -1,0 +1,12 @@
+div {
+  position: relative;
+}
+
+.bubble {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  z-index: -1 !important;
+  font-weight: bolder;
+  font-size: 18px;
+}

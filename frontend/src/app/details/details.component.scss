@@ -4,7 +4,7 @@
   display: flex;
   overflow-y: scroll;
   flex-wrap: wrap;
-  height: 100%;
+  height: calc(100% - 5px);
   align-items: center;
   border-radius: 10px;
   max-width: 1000px;
@@ -17,6 +17,12 @@
     flex-direction: column;
   }
 
+  .bookmark-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
   .record-poster {
     background-color: blueviolet;
     border-radius: 10px;
@@ -24,6 +30,7 @@
     overflow: hidden;
     flex-grow: 2;
     flex-shrink: 1;
+    position: relative;
   }
 
   picture {
@@ -47,6 +54,11 @@
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 2;
+    font-size: 18px;
+
+    h1 {
+      font-size: 30px;
+    }
   }
 
   .record-footer {

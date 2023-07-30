@@ -15,9 +15,6 @@
   </div>
   <div class="card-footer">
     <h3>{{ movie.title }}</h3>
-    <button *ngIf="(user$ | async)" mat-mini-fab color="primary" (click)="addToCart(movie)">
-      <mat-icon aria-hidden="false" aria-label="Add to cart" fontIcon="shopping_cart"></mat-icon>
-    </button>
-    <span *ngIf="(user$ | async)" [@bubble]="isBubbling ? 'start' :'end'" (@bubble.done)="isBubbling = false" class="bubble">+1</span>
+    <app-add-to-cart-button *ngIf="(user$ | async)" (clicked)="addToCart(movie)"  />
   </div>
 </article>

@@ -6,26 +6,10 @@ import { errorSelector, bookmarkingSelector } from '../stores/movies/selectors';
 import { userSelector } from '../stores/auth/selectors';
 import * as MoviesActions from '../../shared/stores/movies/actions';
 import { ShoppingCartService } from '../shopping-cart.service';
-import { animate, state, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  animations: [
-    trigger('bubble', [
-      state('start', style({
-        transform: 'translateY(-37px)',
-        opacity: 0,
-      })),
-      state('end', style({
-        transform: 'translateY(0)',
-        opacity: 1,
-      })),
-      transition('* => start', [
-        animate('0.4s')
-      ]),
-    ])
-  ],
 })
 
 export class CardComponent implements OnInit, OnDestroy {
@@ -35,7 +19,6 @@ export class CardComponent implements OnInit, OnDestroy {
   user$!: Observable<any>;
   userSunscription$!: Subscription;
   isBookmarked = false;
-  isBubbling = false;
 
   constructor (
     private store: Store<AppState>,
@@ -72,7 +55,6 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   addToCart(item: Movie) {
-    this.isBubbling = true;
     this.cartService.addItem(item);
   }
 
