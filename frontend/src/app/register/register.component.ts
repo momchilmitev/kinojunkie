@@ -4,18 +4,21 @@ import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { repeatePasswordValidator } from '../shared/directives/repeatePassword.directive';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnDestroy {
-  registerForm = this.fb.group({
+  registerForm: any = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]],
+  },
+  { validators: [repeatePasswordValidator()]
   })
   isLoading = false;
   registerSubscription!: Subscription;

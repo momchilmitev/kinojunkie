@@ -24,7 +24,7 @@ export const reducers = createReducer(
     isLoading: false,
     error: action.error,
   })),
-  on(AuthActions.logout, (state) => ({ ...state, token: '' })),
+  on(AuthActions.logout, (state) => ({ ...state, token: '', user: null })),
   on(AuthActions.updateUser, (state) => ({ ...state, isLoading: true })),
   on(AuthActions.updateUserSuccess, (state, action) => ({
     ...state,

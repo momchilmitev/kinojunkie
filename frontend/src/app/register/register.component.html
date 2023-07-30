@@ -41,6 +41,9 @@
         <mat-error *ngIf="confirmPassword.errors?.['required']">
           Confirm the password is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="confirmPassword.errors?.['mismatch']">
+          Passwords do not match!
+        </mat-error>
       </mat-form-field>
       <button mat-fab extended color="primary" class="register-btn" [disabled]="registerForm.invalid || isLoading">
         <span class="register-btn__content">
