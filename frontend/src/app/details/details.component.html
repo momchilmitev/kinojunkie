@@ -1,8 +1,6 @@
 <section class="record-container">
   <div class="record-poster">
-    <button *ngIf="(user$ | async)" mat-fab color="primary" class="bookmark-btn" (click)="bookmark()">
-      <mat-icon aria-hidden="false" [color]="isBookmarked ? 'accent' : ''" aria-label="Add to cart" fontIcon="bookmarks"></mat-icon>
-    </button>
+    <app-bookmark-button *ngIf="(user$ | async)" [isBookmarked]="isBookmarked" (clicked)="bookmark()" />
     <picture>
       <source [srcset]="record.poster_large" media="(min-width: 720px)" />
       <source [srcset]="record.poster_small" media="(max-width: 719px)" />

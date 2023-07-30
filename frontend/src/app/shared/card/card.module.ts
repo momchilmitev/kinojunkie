@@ -4,6 +4,7 @@ import { CardComponent } from './card.component';
 import { MaterialModule } from '../material/material.module'
 import { CommonModule } from '@angular/common';
 import { AddToCartButtonModule } from '../add-to-cart-button/add-to-cart-button.module';
+import { BookmarkButtonModule } from '../bookmark-button/bookmark-button.module';
 @NgModule({
   declarations: [
     CardComponent,
@@ -13,6 +14,7 @@ import { AddToCartButtonModule } from '../add-to-cart-button/add-to-cart-button.
     MaterialModule,
     RouterModule,
     AddToCartButtonModule,
+    BookmarkButtonModule,
   ],
   exports: [
     CardComponent,

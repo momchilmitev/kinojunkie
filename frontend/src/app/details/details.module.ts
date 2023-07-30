@@ -4,6 +4,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { DetailsRoutingModule } from './details-routing.module';
 import { DetailsComponent } from './details.component';
 import { AddToCartButtonModule } from '../shared/add-to-cart-button/add-to-cart-button.module';
+import { BookmarkButtonModule } from '../shared/bookmark-button/bookmark-button.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { AddToCartButtonModule } from '../shared/add-to-cart-button/add-to-cart-
     DetailsRoutingModule,
     MaterialModule,
     AddToCartButtonModule,
+    BookmarkButtonModule
   ]
 })
 export class DetailsModule { }
