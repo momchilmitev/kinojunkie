@@ -28,7 +28,58 @@
     }
   }
 
-  nav > mat-list {
+  nav > mat-nav-list {
     margin-top: 30px;
+  }
+}
+
+@media (max-width: 719px) {
+  :host {
+
+    .mat-icon.logo {
+      scale: 1.2;
+      margin-left: 10px;
+    }
+
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    nav {
+      flex-direction: row;
+      padding: 5px 0;
+    }
+
+    nav > mat-nav-list {
+      margin-top: 0;
+      padding: 0;
+      display: flex;
+
+      a {
+
+        &:first-child {
+          margin-left: 20px;
+        }
+
+        padding: 5px;
+        height: auto;
+        margin-left: 5px;
+      }
+    }
+
+    .nav-actions {
+      margin: 0;
+      margin-left: auto;
+      flex-direction: row;
+
+      button {
+        margin-bottom: 0;
+        margin-right: 10px;
+        width: 35px;
+        height: 35px;
+      }
+    }
+
   }
 }
