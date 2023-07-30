@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnDestroy {
   registerForm = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
@@ -16,8 +18,15 @@ export class RegisterComponent {
     confirmPassword: ['', [Validators.required]],
   })
   isLoading = false;
+  registerSubscription!: Subscription;
+  // currentErr = '';
 
-  constructor (private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+  constructor (
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private errorAlert: MatSnackBar
+  ) {}
 
   get firstName() {
     return this.registerForm.controls.firstName;
@@ -40,11 +49,25 @@ export class RegisterComponent {
 
   register () {
     this.isLoading = true;
-    this.authService.register(this.registerForm.value).subscribe(r => {
-      this.isLoading = false;
-      this.router.navigate(['/login']);
-      this.registerForm.reset();
-    })
+    this.registerSubscription = this.authService.register(this.registerForm.value).subscribe(
+      r => {
+        this.isLoading = false;
+        this.router.navigate(['/login']);
+        this.registerForm.reset();
+      },
+      ({ error }) => {
+        this.isLoading = false
+        // this.currentErr = error.message;
+        this.errorAlert.open(error.message, '', { duration: 10000, panelClass: ['error-alert'] })
+      },
+      () => {}
+    )
+  }
+
+  ngOnDestroy (): void {
+    if (this.registerSubscription) {
+      this.registerSubscription.unsubscribe()
+    }
   }
 
 }

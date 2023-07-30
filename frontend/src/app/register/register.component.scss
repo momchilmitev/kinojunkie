@@ -32,3 +32,8 @@
 p {
   text-align: center;
 }
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface{
+  background-color: red !important;
+  color: whitesmoke !important;
+}

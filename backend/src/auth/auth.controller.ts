@@ -6,16 +6,19 @@ import {
   HttpStatus,
   UseGuards,
   Put,
+  UseFilters,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { User } from '../users/user.schema';
 import { AuthGuard } from './auth.guard';
+import { MongoExceptionFilter } from 'src/filters/mongo-exception.filter';
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @HttpCode(HttpStatus.OK)
   @Post('register')
+  @UseFilters(MongoExceptionFilter)
+  // @HttpCode(HttpStatus.OK)
   signUp(@Body() signInDto: User) {
     return this.authService.signUp(signInDto);
   }

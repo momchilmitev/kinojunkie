@@ -11,9 +11,7 @@ export class AuthService {
   ) {}
 
   async signUp(user: User): Promise<User> {
-    const createdUser = this.usersService.create(user);
-
-    return createdUser;
+    return this.usersService.create(user);
   }
 
   async signIn(user: User): Promise<any> {

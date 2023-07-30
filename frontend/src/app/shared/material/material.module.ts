@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const materialModules: any[] = [
   MatGridListModule,
@@ -23,6 +24,7 @@ const materialModules: any[] = [
   MatProgressSpinnerModule,
   MatDialogModule,
   MatBadgeModule,
+  MatSnackBarModule,
 ];
 @NgModule({
   declarations: [],
