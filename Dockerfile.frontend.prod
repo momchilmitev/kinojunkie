@@ -10,7 +10,7 @@ RUN npm install -g @angular/cli
 
 COPY frontend/ .
 
-RUN npm run build
+RUN ng build --output-path=dist/frontend --configuration=production
 
 FROM nginx
 
