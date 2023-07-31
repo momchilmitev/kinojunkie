@@ -1,0 +1,22 @@
+FROM node:18.16.1-bookworm-slim as production
+
+# RUN apt-get update && apt-get install -y procps
+
+RUN apt-get upadte \
+  && app-get install -y --no-install-recommends \
+  tini \
+  && rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT [ "/usr/bin/tini", "--" ]
+
+WORKDIR /usr/src/app/backend
+
+COPY backend/package*.json ./
+
+RUN npm ci && npm cache clean --force
+
+COPY backend/ .
+
+RUN npm run build
+
+CMD [ "node", "dist/main.js" ]

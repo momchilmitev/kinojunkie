@@ -1,0 +1,46 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend.prod
+    ports:
+      - '4200:4200'
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/usr/src/app/frontend
+      - ./frontend/node_modules:/usr/src/app/frontend/node_modules
+    networks:
+      - kinojunkie
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend.prod
+      target: production
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+    volumes:
+      - ./backend:/usr/src/app/backend
+      - ./backend/node_modules:/usr/src/app/backend/node_modules
+    networks:
+      - kinojunkie
+
+  mongo:
+    image: mongo:6
+    container_name: kinojunkie-mongo
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=kinojunkie
+    volumes:
+      - ./mongodb/seed.js:/docker-entrypoint-initdb.d/seed.js
+    networks:
+      - kinojunkie
+
+networks:
+  kinojunkie:
