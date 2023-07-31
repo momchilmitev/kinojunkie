@@ -1,4 +1,4 @@
-FROM node:16.18.0-slim as build-stage
+FROM node:18.16.1-bookworm-slim as build-stage
 
 WORKDIR /usr/src/app/frontend
 
