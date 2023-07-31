@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.frontend.prod
     ports:
-      - '4200:4200'
+      - '80:80'
     depends_on:
       - backend
     volumes:
