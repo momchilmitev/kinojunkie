@@ -1,17 +1,17 @@
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend.prod
-    ports:
-      - '80:80'
-    depends_on:
-      - backend
-    volumes:
-      - ./frontend:/usr/src/app/frontend
-      - ./frontend/node_modules:/usr/src/app/frontend/node_modules
-    networks:
-      - kinojunkie
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.frontend.prod
+  #   ports:
+  #     - '80:80'
+  #   depends_on:
+  #     - backend
+  #   volumes:
+  #     - ./frontend:/usr/src/app/frontend
+  #     - ./frontend/node_modules:/usr/src/app/frontend/node_modules
+  #   networks:
+  #     - kinojunkie
 
   backend:
     build:
