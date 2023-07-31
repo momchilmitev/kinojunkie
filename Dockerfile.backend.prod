@@ -3,7 +3,7 @@ FROM node:18.16.1-bookworm-slim as production
 # RUN apt-get update && apt-get install -y procps
 
 RUN apt update \
-  && app install -y --no-install-recommends \
+  && apt install -y --no-install-recommends \
   tini \
   && rm -rf /var/lib/apt/lists/*
 
