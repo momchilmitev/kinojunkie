@@ -5,8 +5,6 @@ export function repeatePasswordValidator(): ValidatorFn {
 
     let password = control.get('password')?.value;
     let repeatPassword = control.get('confirmPassword')?.value;
-    console.log(password);
-    console.log(repeatPassword);
     
     if (repeatPassword.length > 0 && password !== repeatPassword) {
       control.get('confirmPassword')?.setErrors({mismatch: true});
