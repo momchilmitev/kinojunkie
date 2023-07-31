@@ -10,14 +10,16 @@ export class ShoppingCartService {
   items: Movie[] = [];
   paymentHandler: any = null;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    private dialog: MatDialog,
+  ) {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(ShoppingCartComponent);
+    this.dialog.open(ShoppingCartComponent);
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  closeDialog() {
+    this.dialog.closeAll()
   }
 
   addItem(product: Movie) {
@@ -93,9 +95,9 @@ export class ShoppingCartService {
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_51KYcmBCKmuhJOPPhczQzRg8POfoOuW5Q0gvcIfiEJFD1lYr3oFG8CK5HZSfCLb5Tek91Q8u1kAPIwVFlN6I1UGQp00D0LbKpxs',
       locale: 'auto',
-      token: function (stripeToken: any) {
-        console.log(stripeToken);
-        alert('Stripe token generated!');
+      token: (stripeToken: any) => {
+        this.closeDialog()
+        this.clearCart()
       },
     });
     paymentHandler.open({
@@ -115,10 +117,7 @@ export class ShoppingCartService {
         this.paymentHandler = (<any>window).StripeCheckout.configure({
           key: 'pk_test_51KYcmBCKmuhJOPPhczQzRg8POfoOuW5Q0gvcIfiEJFD1lYr3oFG8CK5HZSfCLb5Tek91Q8u1kAPIwVFlN6I1UGQp00D0LbKpxs',
           locale: 'auto',
-          token: function (stripeToken: any) {
-            console.log(stripeToken);
-            alert('Payment has been successfull!');
-          },
+          token: function (stripeToken: any) {},
         });
       };
       window.document.body.appendChild(script);
