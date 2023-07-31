@@ -9,30 +9,30 @@ export class MoviesService {
   constructor( private http: HttpClient) { }
 
   all() {
-    return this.http.get<Movie[]>('https://cors-anywhere.herokuapp.com/http://64.225.108.81:3000/records');
+    return this.http.get<Movie[]>('http://64.225.108.81:3000/records');
   }
 
   allMovies() {
-    return this.http.get<Movie[]>('https://cors-anywhere.herokuapp.com/http://64.225.108.81:3000/records/movies');
+    return this.http.get<Movie[]>('http://64.225.108.81:3000/records/movies');
   }
 
   allSeries() {
-    return this.http.get<Movie[]>('https://cors-anywhere.herokuapp.com/http://64.225.108.81:3000/records/series');
+    return this.http.get<Movie[]>('http://64.225.108.81:3000/records/series');
   }
 
   getRecord(id: string) {
-    return this.http.get<Movie>('https://cors-anywhere.herokuapp.com/http://64.225.108.81:3000/records/details', { params: { id } });
+    return this.http.get<Movie>('http://64.225.108.81:3000/records/details', { params: { id } });
   }
 
   getBookmarks(id: string) {
-    return this.http.get<Movie[]>('https://cors-anywhere.herokuapp.com/http://64.225.108.81:3000/records/bookmarks', { params: { id } });
+    return this.http.get<Movie[]>('http://64.225.108.81:3000/records/bookmarks', { params: { id } });
   }
  
   bookmark(data: { user_id: any; record_id: any }) {
-    return this.http.put('https://cors-anywhere.herokuapp.com/http://64.225.108.81:3000/records/bookmark', { data });
+    return this.http.put('http://64.225.108.81:3000/records/bookmark', { data });
   }
 
   unbookmark(data: { user_id: any; record_id: any }) {
-    return this.http.put('https://cors-anywhere.herokuapp.com/http://64.225.108.81:3000/records/unbookmark', { data });
+    return this.http.put('http://64.225.108.81:3000/records/unbookmark', { data });
   }
 }
