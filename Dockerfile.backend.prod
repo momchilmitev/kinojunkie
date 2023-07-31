@@ -19,6 +19,6 @@ COPY backend/ .
 
 RUN npm run build
 
-COPY backend/dist/ ./dist
+COPY backend/dist ./dist
 
 CMD [ "node", "dist/main.js" ]
