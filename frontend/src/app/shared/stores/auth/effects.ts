@@ -3,10 +3,8 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import * as AuthActions from './actions';
 import { catchError, map, mergeMap, of, withLatestFrom } from "rxjs";
 import { AuthService } from "../../auth.service";
-import { Store, select } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { AppState } from "@types";
-import { userSelector } from '../../../shared/stores/auth/selectors';
-
 @Injectable()
 export class AuthEffects {
   constructor(private actions$: Actions, private authService: AuthService, private store: Store<AppState>) {}

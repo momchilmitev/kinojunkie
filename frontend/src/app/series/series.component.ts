@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../shared/movies.service';
 import { AppState, Movie } from '@types';
 import { Store, select } from '@ngrx/store';
 import * as MoviesActions from '../shared/stores/movies/actions';

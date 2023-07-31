@@ -22,7 +22,6 @@ export class RegisterComponent implements OnDestroy {
   })
   isLoading = false;
   registerSubscription!: Subscription;
-  // currentErr = '';
 
   constructor (
     private fb: FormBuilder,
@@ -60,7 +59,6 @@ export class RegisterComponent implements OnDestroy {
       },
       ({ error }) => {
         this.isLoading = false
-        // this.currentErr = error.message;
         this.errorAlert.open(error.message, '', { duration: 10000, panelClass: ['error-alert'] })
       },
       () => {}

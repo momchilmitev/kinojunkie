@@ -1,18 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-interface Movie {
-  id: string,
-  title: string,
-  poster_large: string,
-  poster_small: string,
-  year: number|string,
-  duration: number|string,
-  type: string,
-  bookmarked_by: string[],
-  description: string,
-}
-
+import { Movie } from '@types';
 @Injectable({
   providedIn: 'root'
 })

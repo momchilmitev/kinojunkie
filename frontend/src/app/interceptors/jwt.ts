@@ -14,7 +14,6 @@ export class JwtInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      // add auth header with jwt if account is logged in and request is to the api url
       return this.token$.pipe(
         first(),
         mergeMap(t => {

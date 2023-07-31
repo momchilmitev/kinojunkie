@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../shared/material/material.module';
 import { NavigationModule } from '../../core/navigation/navigation.module'
 import { GridComponent } from './grid.component'
-
-
 @NgModule({
   declarations: [
     GridComponent

@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState, Movie } from '@types';
 import { Observable, Subscription } from 'rxjs';
-import { errorSelector, bookmarkingSelector } from '../stores/movies/selectors';
+import { errorSelector } from '../stores/movies/selectors';
 import { userSelector } from '../stores/auth/selectors';
 import * as MoviesActions from '../../shared/stores/movies/actions';
 import { ShoppingCartService } from '../shopping-cart.service';

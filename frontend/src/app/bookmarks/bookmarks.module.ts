@@ -7,8 +7,6 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../shared/stores/movies/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { MoviesEffects } from '../shared/stores/movies/effects';
-
-
 @NgModule({
   declarations: [
     BookmarksComponent
