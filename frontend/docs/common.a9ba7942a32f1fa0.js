@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[592],{7891:(D,r,_)=>{_.d(r,{p:()=>e});var t=_(5879),o=_(7920),s=_(4221),E=_(8293),a=_(4664),n=_(2096);const e=()=>{const M=(0,t.f3M)(o.F0);return(0,t.f3M)(s.yh).pipe((0,s.Ys)(E.Cl)).pipe((0,a.w)(u=>u?(0,n.of)(!0):(M.navigate(["/login"]),(0,n.of)(!1))))}}}]);
